@@ -60,3 +60,49 @@ Notes / Tips
 - Due to large M and tight time limit, consider fast I/O (e.g., scanf/printf, ios::sync_with_stdio(false), or the provided read() function in C++).
 
 xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Title: Balanced Lineup (USACO 2007 JAN) — Range Max–Min Query
+
+Problem Description
+Farmer John’s N cows (1 ≤ N ≤ 5×10^4) stand in a fixed order. He considers Q (1 ≤ Q ≤ 1.8×10^5) possible contiguous groups of cows. For each query range [A, B] (1-indexed, inclusive), report the difference between the tallest and the shortest cow within that range.
+
+Input Format
+- The first line contains two integers N and Q.
+- The next N lines each contain an integer H_i — the height of the i-th cow.
+- The next Q lines each contain two integers A and B — the endpoints of a query (1 ≤ A ≤ B ≤ N).
+
+Output Format
+- Print Q lines.
+- For each query [A, B], output: max(H[A..B]) − min(H[A..B]).
+
+Constraints
+- 1 ≤ N ≤ 50,000
+- 1 ≤ Q ≤ 180,000
+- 1 ≤ H_i ≤ 1,000,000
+- 1 ≤ A ≤ B ≤ N
+- Indices are 1-based.
+
+Sample Input
+6 3
+1
+7
+3
+4
+2
+5
+1 5
+4 6
+2 2
+
+Sample Output
+6
+3
+0
+
+Notes / Tips
+- This is a static range query problem. A common approach is to build two Sparse Tables (one for maximums, one for minimums) in O(N log N), then answer each query in O(1) as:
+    answer = max_query(A, B) − min_query(A, B).
+- Alternatively, a segment tree can answer each query in O(log N).
+- Because Q is large, prefer fast I/O in C++ (e.g., ios::sync_with_stdio(false); cin.tie(nullptr);).
+
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
