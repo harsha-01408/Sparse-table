@@ -1,0 +1,62 @@
+Title: Static Range Maximum Query (Sparse Table Classic)
+
+Title Background
+This is a classic ST (Sparse Table) problem — Static interval maximum.
+
+Please note that the maximum time limit is only 0.8s and the data strength is not low. You must ensure your per-query complexity is O(1). Using a higher time complexity algorithm may not pass.
+
+If you believe your algorithm has the right complexity but you still get TLE, try using fast input. For example, in C++:
+
+inline int read() {
+    int x = 0, f = 1; char ch = getchar();
+    while (ch < '0' || ch > '9') { if (ch == '-') f = -1; ch = getchar(); }
+    while (ch >= '0' && ch <= '9') { x = x * 10 + ch - 48; ch = getchar(); }
+    return x * f;
+}
+
+(The function returns the first integer read in. Fast I/O is optional; it only helps speed up input.)
+
+Problem Description
+You are given a sequence of length N and M queries. For each query, find the maximum value in the specified interval.
+
+Input Format
+- The first line contains two integers N and M — the length of the sequence and the number of queries.
+- The second line contains N integers A_i, representing the elements of the sequence.
+- Each of the next M lines contains two integers L_i and R_i, indicating a query interval [L_i, R_i] (1-indexed, inclusive).
+
+Output Format
+Output M lines, one integer per line, where each line is the maximum value in the corresponding query interval.
+
+Sample Input
+8 8
+9 3 1 7 5 6 0 8
+1 6
+1 5
+2 7
+2 6
+1 8
+4 8
+3 7
+1 8
+
+Sample Output
+9
+9
+7
+7
+9
+8
+7
+9
+
+Constraints
+- 1 ≤ N ≤ 10^5
+- 1 ≤ M ≤ 2 × 10^6
+- 0 ≤ A_i ≤ 10^9
+- 1 ≤ L_i ≤ R_i ≤ N
+
+Notes / Tips
+- This is a static RMQ (Range Maximum Query) with no updates. Preprocess in O(N log N) using a Sparse Table, answer each query in O(1).
+- Due to large M and tight time limit, consider fast I/O (e.g., scanf/printf, ios::sync_with_stdio(false), or the provided read() function in C++).
+
+xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
