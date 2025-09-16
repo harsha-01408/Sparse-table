@@ -106,3 +106,54 @@ Notes / Tips
 - Because Q is large, prefer fast I/O in C++ (e.g., ios::sync_with_stdio(false); cin.tie(nullptr);).
 
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+
+Title: P3097 [USACO13DEC] Optimal Milking G
+
+Problem Description
+Farmer John has N milking machines arranged in a line, numbered 1..N (1 ≤ N ≤ 40000). 
+Machine i can produce Mi units of milk in a day. However, machines are installed too closely:
+if a machine i is used on a given day, its adjacent machines (i−1 and i+1) cannot be used that day.
+
+There are D days (1 ≤ D ≤ 50000). At the start of each day, exactly one maintenance update occurs:
+Mi is set to a new value m. After applying that day’s update, Farmer John will choose a set of
+machines to use such that no two chosen indices are adjacent, maximizing the total milk for that day.
+
+Your task is to compute the sum of these daily maxima over all D days and output this total.
+(Note: 32-bit integers may overflow; use 64-bit.)
+
+Input Format
+- Line 1: Two integers N, D.
+- Lines 2..N+1: Line i+1 contains a single integer Mi (initial production of machine i).
+- Lines N+2..N+1+D: Each line has two integers i, m — at the start of that day, set Mi ← m.
+
+Output Format
+- Print a single integer: the sum, over all D days, of the maximum obtainable milk after that day’s update.
+
+Constraints
+- 1 ≤ N ≤ 40,000
+- 1 ≤ D ≤ 50,000
+- Mi and m are positive integers (use 64-bit when summing)
+- No two used machines in a day may be adjacent
+
+Sample Input
+5 3
+1
+2
+3
+4
+5
+5 2
+2 7
+1 10
+
+Sample Output
+32
+
+Explanation (for the sample)
+Day 1 after update: M = [1,2,3,4,2] → best is 2+4=6 (or 1+3+2=6).
+Day 2 after update: M = [1,7,3,4,2] → best is 7+4=11.
+Day 3 after update: M = [10,7,3,4,2] → best is 10+3+2=15.
+Total = 6 + 11 + 15 = 32.
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
